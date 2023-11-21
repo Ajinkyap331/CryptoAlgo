@@ -1,0 +1,66 @@
+def main():
+    PlainText = input("Enter the plain text: ")
+    Key = int(input("Enter the key: "))
+
+    CipherText = ""
+    grid = [["" for i in range(len(PlainText))] for j in range(Key)]
+
+    print(grid)
+
+    forw = True
+    j = 0
+    for i in range(len(PlainText)):
+        if(forw):
+            grid[j][i] = PlainText[i]
+            j += 1
+        else:
+            grid[j][i] = PlainText[i]
+            j -= 1
+        if(j == 0 and not forw):
+            forw = not forw
+        elif (j == Key-1 and forw):
+            forw = not forw
+
+
+    print(grid)
+    for g in grid:
+        for c in g:
+            CipherText += c
+
+    print(CipherText)
+
+    grid = [["" for i in range(len(CipherText))] for j in range(Key)]
+
+    forw = True
+    j = 0
+    for i in range(len(CipherText)):
+        if (forw):
+            grid[j][i] = "*"
+            j += 1
+        else:
+            grid[j][i] = "*"
+            j -= 1
+        if (j == 0 and not forw):
+            forw = not forw
+        elif (j == Key-1 and forw):
+            forw = not forw
+
+    print(grid)
+
+    k = 0
+    for row in grid:
+        for col in row:
+            if(col == "*"):
+                grid[grid.index(row)][row.index(col)] = CipherText[k]
+                k+=1
+
+
+    PlainText = ""
+    for i in range(len(CipherText)):
+        for j in range(Key):
+            if(grid[j][i] != "*"):
+                PlainText += grid[j][i]
+
+    print(PlainText)
+
+main()
