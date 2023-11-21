@@ -1,7 +1,12 @@
-#include <iostream>
-#include <cmath>
+#include <bits/stdc++.h>
+#include <algorithm>
 
 using namespace std;
+
+bool areCoprime(int a, int b)
+{
+    return __gcd(a, b) == 1;
+}
 
 bool isPrime(int n)
 {
@@ -57,6 +62,12 @@ int main()
         cin >> q;
     }
 
+    if (p == q)
+    {
+        cout << "p and q should be different prime numbers." << endl;
+        return 1;
+    }
+
     int N = p * q;
 
     int phi = (p - 1) * (q - 1);
@@ -65,10 +76,10 @@ int main()
     int e;
     cout << "Enter a number (d): ";
     cin >> e;
-    while (phi % e == 0)
+    while (!areCoprime(e, phi) || e <= 1 || e >= phi)
     {
         cout << "Should not be a Multiple of Phi" << endl;
-        cout << "Enter a number (d): ";
+        cout << "Enter a number (e): ";
         cin >> e;
     }
 

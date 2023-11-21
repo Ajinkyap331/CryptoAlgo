@@ -17,6 +17,8 @@ string generateKey(string str, string key)
     return key;
 }
 
+
+
 string cipherText(string str, string key)
 {
     string cipher_text;
