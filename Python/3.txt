@@ -1,3 +1,4 @@
+# Name: Substitution Cipher
 def generate_key(plaintext, keyword):
     n = len(plaintext)
     k = len(keyword)

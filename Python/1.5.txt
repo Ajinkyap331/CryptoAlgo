@@ -1,3 +1,4 @@
+# Rail Fence Cipher
 def main():
     PlainText = input("Enter the plain text: ")
     Key = int(input("Enter the key: "))

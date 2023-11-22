@@ -1,4 +1,4 @@
-## Caesar
+# Caesar
 def caesar_cipher(text, shift):
     result = ""
     for char in text:
@@ -7,7 +7,8 @@ def caesar_cipher(text, shift):
 
             ascii_code = ord(char)
 
-            shifted_code = (ascii_code - ord('A' if is_upper else 'a') + shift) % 26
+            shifted_code = (
+                ascii_code - ord('A' if is_upper else 'a') + shift) % 26
 
             shifted_char = chr(shifted_code + ord('A' if is_upper else 'a'))
 
@@ -17,8 +18,10 @@ def caesar_cipher(text, shift):
 
     return result
 
+
 def encrypt_caesar(plaintext, shift_amount):
     return caesar_cipher(plaintext, shift_amount)
+
 
 def decrypt_caesar(ciphertext, shift_amount):
     return caesar_cipher(ciphertext, -shift_amount)
