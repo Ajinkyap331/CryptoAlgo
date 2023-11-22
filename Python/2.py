@@ -1,3 +1,5 @@
+from math import gcd
+
 def isPrime(n):
     if n == 1:
         return False
@@ -6,6 +8,8 @@ def isPrime(n):
             return False
     return True
 
+def areCoprime(a, b):
+    return gcd(a, b) == 1;
 
 def main():
     p = int(input("Enter a prime number (p): "))
@@ -18,13 +22,17 @@ def main():
         print("Not a Prime Number")
         q = int(input("Enter a prime number (q): "))
 
+    if(p == q):
+        print("p and q should not be equal")
+        return
+
     N = p * q
 
     phi = (p - 1) * (q - 1)
     print("Phi: ", phi)
 
     e = int(input("Enter a number (d): "))
-    while (phi % e == 0):
+    while (not areCoprime(e, phi) or e <= 1 or e >= phi):
         print("Should not be a Multiple of Phi")
         e = int(input("Enter a number (d): "))
 

@@ -1,3 +1,18 @@
+# Prime Number P
+# Private Key D
+# Second Public Key E1
+# Third Public Key E2 = E1^D mod P
+# Public Key = E1, E2, P
+
+# Encryption
+# Random Number R
+# Cipher Text C1 = E1^R mod P
+# Cipher Text C2 = (M * E2^R) mod P
+# Cipher Text = C1, C2
+
+# Decryption
+# Plain Text = (C2 * C1^(P - 1 - D)) mod P
+
 import random
 
 def isPrime(n):
@@ -5,11 +20,9 @@ def isPrime(n):
         return True
     if n % 2 == 0:
         return False
-
     for i in range(3, int(n ** 0.5) + 1):
         if n % i == 0:
             return False
-
     return True
 
 def encrypt(e1, e2, p):

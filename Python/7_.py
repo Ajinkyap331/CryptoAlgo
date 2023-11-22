@@ -1,4 +1,13 @@
 # Python program to illustrate ElGamal encryption
+
+# Very Large Number q
+# q = Number between 10^20 and 10^50
+# g = Number between 2 and q
+# key = Number between 10^20 and q which is coprime with q
+# h = g^key mod q
+
+
+
 import random, math
 
 
